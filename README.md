@@ -77,7 +77,7 @@ well) is the whole point, and it's asserted directly in
 python -m venv .venv && source .venv/bin/activate   # Win: .\.venv\Scripts\activate
 pip install -e ".[dev]"
 python benchmark.py    # before/after table
-pytest -q              # 12 tests
+pytest -q              # 13 tests
 ```
 
 ### Actual output (`python benchmark.py`)
@@ -110,7 +110,8 @@ src/llmopt/
 └── workload.py   # a representative mixed workload with duplicates
 benchmark.py       # runs both pipelines on the workload, prints the before/after table
 tests/
-└── test_llmopt.py # 12 tests: each lever in isolation + end-to-end savings + quality gate
+├── test_llmopt.py    # 12 tests: each lever in isolation + end-to-end savings + quality gate
+└── test_benchmark.py # 1 test: the benchmark.py CLI entry point runs and reports a win
 ```
 
 ## Key design decisions

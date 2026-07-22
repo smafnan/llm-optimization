@@ -8,9 +8,7 @@ measurable amount while keeping quality identical.
 
 from __future__ import annotations
 
-import json
-
-from src.llmopt import BaselinePipeline, OptimizedPipeline, build_workload
+from llmopt import BaselinePipeline, OptimizedPipeline, build_workload
 
 
 def _pct(before: float, after: float) -> str:
@@ -43,7 +41,6 @@ def main() -> int:
     assert opt.quality >= base.quality, "optimisation must not reduce quality"
     print("\nQuality preserved while cost and latency dropped — optimisation wins.")
 
-    json.dumps({"baseline": base.as_dict(), "optimized": opt.as_dict()})
     return 0
 
 
